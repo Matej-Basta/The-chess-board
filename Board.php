@@ -1,19 +1,43 @@
 <?php
 
+require_once "Piece.php";
+require_once "Square.php";
+
 class Board
 {
-    public $rows = null;
-    public function __construct($rows)
+    public $columns = null;
+    public function __construct($columns)
     {
-        $this->rows = $rows;
+        $this->columns = $columns;
+    }
+
+    public function gettingRows()
+    {
+        foreach($this->columns as $column => $columnSquares) {
+            
+
+            for($i=1; $i<9; $i++) {
+                $square = new Square($i, $column);
+
+                foreach($columnSquares as $row => $value) {
+                    if($row === $i) {
+                        $square->piece = new Piece($value);
+                    }
+                }
+                echo $square;
+            }
+
+            // foreach($rowSquares as $column => $value) {
+            // $piece = new Piece($value);
+            // $square = new Square($row, $column, $piece);
+            //    echo "<div>{$square}</div>";
+            // }
+            // return "<div>{$row}</div>";
+        }
     }
 
     public function __toString()
     {
-        return "<div class='board'>" . (foreach($this->rows as $row => $squares) {
-            foreach($squares as $square) {
-                $piece = new Square($)
-            }
-        })
+        return "<div>" . $this->gettingRows() . "</div>";
     }
 }
