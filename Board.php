@@ -3,6 +3,8 @@
 require_once "Piece.php";
 require_once "Square.php";
 
+
+//creating a Board class
 class Board
 {
     public $columns = null;
@@ -11,14 +13,17 @@ class Board
         $this->columns = $columns;
     }
 
-    public function gettingRows()
+    public function gettingColumns()
     {
+
+        //looping through all 8 columns
         foreach($this->columns as $column => $columnSquares) {
             
-
+            //iterating 8 times and creating black and white squares
             for($i=1; $i<9; $i++) {
                 $square = new Square($i, $column);
-
+                
+                //iterating through the provided column squares and adding the pieces on the corresponding squares
                 foreach($columnSquares as $row => $value) {
                     if($row === $i) {
                         $square->piece = new Piece($value);
@@ -26,18 +31,11 @@ class Board
                 }
                 echo $square;
             }
-
-            // foreach($rowSquares as $column => $value) {
-            // $piece = new Piece($value);
-            // $square = new Square($row, $column, $piece);
-            //    echo "<div>{$square}</div>";
-            // }
-            // return "<div>{$row}</div>";
         }
     }
 
     public function __toString()
     {
-        return "<div>" . $this->gettingRows() . "</div>";
+        return "<div>" . $this->gettingColumns() . "</div>";
     }
 }

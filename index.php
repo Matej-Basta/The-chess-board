@@ -14,23 +14,37 @@
 
 <?php
 
-require_once "Piece.php";
-require_once "Square.php";
 require_once "Board.php";
 
-$black_pawn = new Piece('p');
-$white_queen = new Piece('Q');
+// function fen2array($fen)
+// {
+//     $parts = preg_split('#\s+#', $fen);
+//     $rows = explode('/', $parts[0]);
+ 
+//     $pieces = array();
+ 
+//     $y = 8;
+//     foreach ($rows as $row) {
+//         $x = 1;
+//         for ($i = 0; $i < strlen($row); $i++) {
+//             if (is_numeric($row[$i])) {
+//                 $x += intval($row[$i]);
+//             } else {
+//                 $pieces[$x][$y] = $row[$i];
+//                 $x++;
+//             }
+//         }
+//         $y--;
+//     }
+ 
+//     return $pieces;
+// }
 
+// $pieces_positions = fen2array('rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3');
 
-$a2 = new Square(1, 2);
-$b2 = new Square(2, 2, $white_queen);
-$c2 = new Square(3, 2, $black_pawn);
-$d2 = new Square(4, 2);
-// echo $a2;
-// echo $b2;
-// echo $c2;
-// echo $d2;
+// var_dump($pieces_positions);
 
+//initializing a board object
 $board = new Board([
     1 => [8 => 'r', 7 => 'p', 2 => 'P', 1 => 'R'],
     2 => [8 => 'n', 7 => 'p', 2 => 'P', 1 => 'N'],

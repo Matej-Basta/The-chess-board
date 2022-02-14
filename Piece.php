@@ -1,5 +1,6 @@
 <?php
 
+//creating a Piece class
 class Piece
 {
     public $type = null;

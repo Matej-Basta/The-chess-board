@@ -1,5 +1,7 @@
 <?php
 
+
+//creating a Square class
 class Square
 {
     public $x_coord = null;
@@ -15,6 +17,8 @@ class Square
 
     public function isDark()
     {
+
+        //function that returns true only if x and y coordinates are either even or odd
         if(($this->x_coord % 2 === 0 && $this->y_coord % 2 === 0) || ($this->x_coord % 2 === 1 && $this->y_coord % 2 === 1)) {
             return true;
         } else {
